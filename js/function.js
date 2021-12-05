@@ -1,3 +1,9 @@
+//ESTILOS AGRUPADOS
+// const estilos = $("h1,h3");
+
+// $(estilos).css("color", "white");
+// $(estilos).css("font-size", "300%");
+// $(estilos).css("font-family", "'Franklin Gothic Medium', 'Arial Narrow', 'Arial, sans-serif'");
 
 
 //CONTENEDOR PRODUCTOS
@@ -28,3 +34,10 @@ $(".card-body button").on("mouseover", () => {
 });
 
 //
+
+
+//typed
+
+const typed = new Typed ('.typed',{
+  strings: ['Comidas','Bebidas','Minutas','Vinos']
+});

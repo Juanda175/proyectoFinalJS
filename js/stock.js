@@ -1,7 +1,7 @@
 
 
 let stockCarta= [
-    {id:1, tipo: "Pizza", nombre: "Mozzarella", detalle: "Mozzarella, aceitunas, ajo picado", precio: 900, img: '../sources/stock/pmoza.png'},
+    {id:1, tipo: "Pizza", nombre: "Mozzarella", detalle: "Mozzarella, aceitunas, ajo picado", precio: 900, img: './sources/stock/pmoza.png'},
     {id:2, tipo: "Pizza", nombre: "Margarita", detalle: "Mozzarella de leche de vaca, tomate, aceitunas", precio: 1100, img: './sources/stock/pmargarita.png'},
     {id:3, tipo: "Pizza", nombre: "4-Quesos", detalle: "La mozzarella, la gorgonzola, el parmesano y la ricotta", precio: 900, img: './sources/stock/4quesos.png'},
     {id:4, tipo: "Pizza", nombre: "Calzone", detalle: "Jamon dulce, salame y huevo", precio: 600, img: './sources/stock/pmoza.png'},

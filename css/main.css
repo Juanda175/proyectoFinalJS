@@ -1,6 +1,7 @@
 * {
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  box-sizing: border-box; }
 
 #imh {
   width: 100%;
@@ -8,3 +9,18 @@
   margin-bottom: 10%;
   display: flex;
   position: static; }
+
+header {
+  background-image: url(../sources/bucky.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+  header h1 {
+    width: 100%;
+    text-align: right;
+    padding-top: 15%;
+    padding-right: 30%;
+    color: deepskyblue; }
+  header .slider-container {
+    padding-top: 10%;
+    padding-bottom: 5%; }
