@@ -11,16 +11,25 @@
   position: static; }
 
 header {
-  background-image: url(../sources/bucky.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; }
-  header h1 {
-    width: 100%;
-    text-align: right;
-    padding-top: 15%;
-    padding-right: 30%;
-    color: deepskyblue; }
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; }
   header .slider-container {
     padding-top: 10%;
     padding-bottom: 5%; }
+
+.typed {
+  display: flex;
+  height: 80px;
+  background-color: rgba(136, 93, 28, 0.541);
+  align-items: center;
+  font-size: 100%;
+  justify-content: center;
+  color: black;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  font-family: monospace;
+  font-weight: bold; }
+
+.typed-cursor {
+  visibility: hidden; }
