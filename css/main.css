@@ -1,3 +1,50 @@
+/* footer */
+#templatemo_footer_wrapper {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 5%;
+  padding: 0;
+  background: #426fae; }
+
+#templatemo_footer {
+  width: 940px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  background: #426fae url(images/templatemo_footer_bg.jpg) no-repeat center top;
+  color: #cccccc; }
+
+#templatemo_footer a {
+  color: #ffffff; }
+
+#templatemo_footer .section_w280 {
+  float: left;
+  width: 240px;
+  padding-right: 40px; }
+
+#templatemo_footer .section_w280 h3 {
+  width: 175px;
+  height: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff; }
+
+#templatemo_footer .footer_list {
+  margin: 0px;
+  padding: 0px;
+  list-style: none; }
+
+#templatemo_footer .footer_list li {
+  margin: 0px;
+  padding: 3px 0; }
+
+#templatemo_footer .footer_list li a {
+  color: #cccccc; }
+
+#templatemo_footer .footer_list li a:hover {
+  color: #ffffff;
+  text-decoration: none; }
+
+/* end of footer */
 * {
   padding: 0;
   margin: 0;
@@ -14,16 +61,14 @@ header {
   display: flex;
   justify-content: center;
   align-items: flex-end; }
-  header .slider-container {
-    padding-top: 10%;
-    padding-bottom: 5%; }
 
 .typed {
   display: flex;
-  height: 80px;
-  background-color: rgba(136, 93, 28, 0.541);
+  height: 50px;
+  background: #c35c16;
+  background: radial-gradient(circle, #8f4a1c 0%, #af7811 100%);
   align-items: center;
-  font-size: 100%;
+  font-size: 150%;
   justify-content: center;
   color: black;
   margin-bottom: 1%;
@@ -33,3 +78,19 @@ header {
 
 .typed-cursor {
   visibility: hidden; }
+
+.carBtnP {
+  width: 100%;
+  padding: 2% 0 2% 0;
+  display: flex;
+  justify-content: space-around; }
+  .carBtnP .btn {
+    background-color: #88481d; }
+
+.slider-container {
+  padding-top: 5%;
+  margin-bottom: 5%; }
+
+.modal-title {
+  color: white;
+  background-color: #2695f0; }

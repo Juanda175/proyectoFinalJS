@@ -33,7 +33,76 @@ $(".card-body button").on("mouseover", () => {
   $(".card-body button").toggleClass("buttonCar");
 });
 
-//
+
+// ARRAY CArrito
+
+const contentCarro = document.getElementById("contenedorCarrito");
+
+const contadorCarrito = document.getElementById("contadorCarrito");
+const precioTotal = document.getElementById("total");
+
+const botonVaciar = document.getElementById("boton-vaciar");
+
+let carrito = [];
+let total = 0;
+
+const agregarAlCarrito = (prodId) => {
+  const item = stockCarta.find((prod) => prod.id === prodId);
+  carrito.push(item);
+
+  actualizarCarrito();
+  console.log(carrito);
+
+  Swal.fire({
+    position: "bottom-end",
+    icon: "success",
+    title: "Agregado al carrito",
+    showConfirmButton: false,
+    timer: 1000,
+  });
+};
+
+const eliminarDelCarrito = (prodId) => {
+  const item = carrito.find((prod) => prod.id === prodId);
+  const indice = carrito.indexOf(item);
+
+  carrito.splice(indice, 1);
+
+  actualizarCarrito();
+  console.log(carrito);
+};
+
+const actualizarCarrito = () => {
+  contentCarro.innerHTML = "";
+
+  carrito.forEach((prod) => {
+    const div = document.createElement("div");
+    div.className = "productoEnCarrito";
+    div.innerHTML = `
+                  <p>${prod.nombre}</p>
+                  <p>${prod.tipo}</p>
+                  <p>${prod.detalle}</p>
+                  <p>Precio: $${prod.precio}</p>
+                  <button onclick="eliminarDelCarrito(${prod.id})" class="boton-eliminar"><i class="fas fa-trash-alt">Quitar</i></button>
+              `;
+
+    contentCarro.appendChild(div);
+  });
+
+  contadorCarrito.innerText = "cantidad : " + carrito.length;
+  precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.precio, 0);
+};
+botonVaciar.addEventListener("click", () => {
+  // carrito = [] // si tengo carrito como LET
+  carrito.length = 0;
+  actualizarCarrito();
+});
+
+
+
+//modal
+
+
 
 //efecto escritura animacion headers
 //typed
