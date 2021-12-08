@@ -45,14 +45,25 @@ const botonVaciar = document.getElementById("boton-vaciar");
 
 let carrito = [];
 let total = 0;
+let totalId = 0;
+
+
 
 const agregarAlCarrito = (prodId) => {
-  const item = stockCarta.find((prod) => prod.id === prodId);
-  carrito.push(item);
 
+  let itemEnCarrito = carrito.find(el => el.id == prodId)
+
+    if (itemEnCarrito) {
+        itemEnCarrito.cantidad += 1
+    } else {
+        let {id, tipo, nombre, detalle, precio} = stockCarta.find( el => el.id == prodId )
+        carrito.push({id: id, nombre: nombre, tipo: tipo, detalle: detalle, precio: precio, cantidad: 1})
+    }
   actualizarCarrito();
   console.log(carrito);
 
+
+//alert 
   Swal.fire({
     position: "bottom-end",
     icon: "success",
@@ -82,22 +93,33 @@ const actualizarCarrito = () => {
                   <p>${prod.nombre}</p>
                   <p>${prod.tipo}</p>
                   <p>${prod.detalle}</p>
-                  <p>Precio: $${prod.precio}</p>
+                  <p>Precio: $${prod.precio}</p>   
+                  <p>Cantidad: ${prod.cantidad}</p>               
                   <button onclick="eliminarDelCarrito(${prod.id})" class="boton-eliminar"><i class="fas fa-trash-alt">Quitar</i></button>
               `;
 
     contentCarro.appendChild(div);
+   
   });
 
   contadorCarrito.innerText = "  " + carrito.length;
-  precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.precio, 0);
+  precioTotal.innerText = carrito.reduce( (acc, el) => acc + (el.precio * el.cantidad), 0 )
+  // precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.precio, 0);
 };
+
+
+
 
 botonVaciar.addEventListener("click", () => {
   // carrito = [] // si tengo carrito como LET
   carrito.length = 0;
   actualizarCarrito();
 });
+
+
+
+
+
 
 //Objetos Promos 
 
@@ -188,3 +210,38 @@ const typed = new Typed ('.typed',{
 	
 	
 	});
+
+
+  // ========= API MERCADO PAGO =============
+
+const finalizarCompra = async () => {
+
+  const carritoToMP = carrito.map( (prod) => {
+      return {
+          title: prod.nombre,
+          description: "",
+          picture_url: "",
+          category_id: prod.id,
+          quantity: prod.cantidad,
+          currency_id: "ARS",
+          unit_price: prod.precio
+      }
+  })
+
+  const resp = await fetch('https://api.mercadopago.com/checkout/preferences', {
+                              method: 'POST',
+                              headers: {
+                                  Authorization: 'Bearer TEST-530625010370198-052019-70dec8c67253a7ded8355f1a098731e3-418556460'
+                              },
+                              body: JSON.stringify({
+                                  items: carritoToMP,
+                                  back_urls: {
+                                      success: window.location.href,
+                                      failure: window.location.href
+                                  }
+                              })
+                          })
+  const data = await resp.json()
+  
+  window.location.replace(data.init_point)
+}
