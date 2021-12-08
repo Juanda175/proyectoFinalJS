@@ -89,16 +89,82 @@ const actualizarCarrito = () => {
     contentCarro.appendChild(div);
   });
 
-  contadorCarrito.innerText = "cantidad : " + carrito.length;
+  contadorCarrito.innerText = "  " + carrito.length;
   precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.precio, 0);
 };
+
 botonVaciar.addEventListener("click", () => {
   // carrito = [] // si tengo carrito como LET
   carrito.length = 0;
   actualizarCarrito();
 });
 
+//Objetos Promos 
 
+const promos = [
+  {
+    nombre: "COMBO 1",
+    precio: 1500,
+    id: 1,
+    img: "./sources/combos/c1.png",
+  },
+  {
+    nombre: "COMBO 2",
+    precio: 2500,
+    id: 2,
+    img: "./sources/combos/c2.png",
+  },
+  {
+    nombre: "COMBO 3",
+    precio: 3500,
+    id: 3,
+    img: "./sources/combos/c3.png",
+  },
+  {
+    nombre: "COMBO 4",
+    precio: 4500,
+    id: 4,
+    img: "./sources/combos/c4.png",
+  },
+  {
+    nombre: "COMBO 5",
+    precio: 4500,
+    id: 5,
+    img: "./sources/combos/c5.png",
+  },
+  {
+    nombre: "COMBO 6",
+    precio: 4500,
+    id: 6,
+    img: "./sources/combos/c6.png",
+  },
+];
+
+for (const prod of promos) {
+  $("#promos").append(`
+      <article class="productCard">
+          <h4>${prod.nombre}</h4>
+          <img src=${prod.img}>
+          <p>Precio: $${prod.precio}</p>
+          <small>Código: ${prod.id}</small>
+          <button onclick="comprar(${prod.id})" class="boton-combo"><i class="fas fa-trash-alt">COMPRAR COMBO</i></button>
+      </article>
+  `);
+}
+
+const bc = document.getElementById("comprar");
+
+function comprar(bc) {
+  Swal.fire({
+    title: "GRACIAS POR COMPRAR EN BUCKY ",
+    showClass: {
+      popup: "animate__animated animate__fadeInDown",
+    },
+    hideClass: {
+      popup: "animate__animated animate__fadeOutUp",
+    },
+  });
+}
 
 //modal
 

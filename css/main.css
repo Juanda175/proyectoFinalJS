@@ -45,6 +45,29 @@
   text-decoration: none; }
 
 /* end of footer */
+/*  */
+.promospromos {
+  margin: 5% 0 5% 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 5%; }
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom: 5%; }
+
+.productCard img {
+  margin-top: 5%; }
+
+.buttonCar {
+  background-color: rgba(255, 0, 51, 0.342); }
+
+/* --------------- */
 * {
   padding: 0;
   margin: 0;
@@ -79,17 +102,14 @@ header {
 .typed-cursor {
   visibility: hidden; }
 
-.carBtnP {
-  width: 100%;
-  padding: 2% 0 2% 0;
-  display: flex;
-  justify-content: space-around; }
-  .carBtnP .btn {
-    background-color: #88481d; }
-
-.slider-container {
-  padding-top: 5%;
+.swiffy-slider {
   margin-bottom: 5%; }
+
+.navbar {
+  margin-bottom: 5%; }
+
+.btn {
+  background-color: #c46f2b; }
 
 .modal-title {
   color: white;
