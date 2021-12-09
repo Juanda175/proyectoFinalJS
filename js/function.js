@@ -5,7 +5,6 @@
 // $(estilos).css("font-size", "300%");
 // $(estilos).css("font-family", "'Franklin Gothic Medium', 'Arial Narrow', 'Arial, sans-serif'");
 
-
 //CONTENEDOR PRODUCTOS
 
 const contenedorProductos = document.querySelector("#Contenedor-productos");
@@ -33,7 +32,6 @@ $(".card-body button").on("mouseover", () => {
   $(".card-body button").toggleClass("buttonCar");
 });
 
-
 // ARRAY CArrito
 
 const contentCarro = document.getElementById("contenedorCarrito");
@@ -47,23 +45,28 @@ let carrito = [];
 let total = 0;
 let totalId = 0;
 
-
-
 const agregarAlCarrito = (prodId) => {
+  let itemEnCarrito = carrito.find((el) => el.id == prodId);
 
-  let itemEnCarrito = carrito.find(el => el.id == prodId)
-
-    if (itemEnCarrito) {
-        itemEnCarrito.cantidad += 1
-    } else {
-        let {id, tipo, nombre, detalle, precio} = stockCarta.find( el => el.id == prodId )
-        carrito.push({id: id, nombre: nombre, tipo: tipo, detalle: detalle, precio: precio, cantidad: 1})
-    }
+  if (itemEnCarrito) {
+    itemEnCarrito.cantidad += 1;
+  } else {
+    let { id, tipo, nombre, detalle, precio } = stockCarta.find(
+      (el) => el.id == prodId
+    );
+    carrito.push({
+      id: id,
+      nombre: nombre,
+      tipo: tipo,
+      detalle: detalle,
+      precio: precio,
+      cantidad: 1,
+    });
+  }
   actualizarCarrito();
   console.log(carrito);
 
-
-//alert 
+  //alert
   Swal.fire({
     position: "bottom-end",
     icon: "success",
@@ -99,16 +102,15 @@ const actualizarCarrito = () => {
               `;
 
     contentCarro.appendChild(div);
-   
   });
 
   contadorCarrito.innerText = "  " + carrito.length;
-  precioTotal.innerText = carrito.reduce( (acc, el) => acc + (el.precio * el.cantidad), 0 )
+  precioTotal.innerText = carrito.reduce(
+    (acc, el) => acc + el.precio * el.cantidad,
+    0
+  );
   // precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.precio, 0);
 };
-
-
-
 
 botonVaciar.addEventListener("click", () => {
   // carrito = [] // si tengo carrito como LET
@@ -116,12 +118,7 @@ botonVaciar.addEventListener("click", () => {
   actualizarCarrito();
 });
 
-
-
-
-
-
-//Objetos Promos 
+//Objetos Promos
 
 const promos = [
   {
@@ -190,58 +187,70 @@ function comprar(bc) {
 
 //modal
 
-
-
 //efecto escritura animacion headers
 //typed
 
-const typed = new Typed ('.typed',{
-  strings: ['Comidas','Bebidas','Minutas','Vinos','Hamburguesas',
-  'Ensaladas','Postres','Tostados','Gaseosas'],
+const typed = new Typed(".typed", {
+  strings: [
+    "Comidas",
+    "Bebidas",
+    "Minutas",
+    "Vinos",
+    "Hamburguesas",
+    "Ensaladas",
+    "Postres",
+    "Tostados",
+    "Gaseosas",
+  ],
 
   //stringsElement: '#cadenas-texto', // ID del elemento que contiene cadenas de texto a mostrar.
-	typeSpeed: 150, // Velocidad en mlisegundos para poner una letra,
-	startDelay: 300, // Tiempo de retraso en iniciar la animacion. Aplica tambien cuando termina y vuelve a iniciar,
-	backSpeed: 100, // Velocidad en milisegundos para borrrar una letra,	
-	shuffle: false, // Alterar el orden en el que escribe las palabras.
-	backDelay: 1500, // Tiempo de espera despues de que termina de escribir una palabra.
-	loop: true, // Repetir el array de strings
-	loopCount: false, // Cantidad de veces a repetir el array.  false = infinite
-	
-	
-	});
+  typeSpeed: 150, // Velocidad en mlisegundos para poner una letra,
+  startDelay: 300, // Tiempo de retraso en iniciar la animacion. Aplica tambien cuando termina y vuelve a iniciar,
+  backSpeed: 100, // Velocidad en milisegundos para borrrar una letra,
+  shuffle: false, // Alterar el orden en el que escribe las palabras.
+  backDelay: 1500, // Tiempo de espera despues de que termina de escribir una palabra.
+  loop: true, // Repetir el array de strings
+  loopCount: false, // Cantidad de veces a repetir el array.  false = infinite
+});
 
 
-  // ========= API MERCADO PAGO =============
+
+
+// ========= API MERCADO PAGO =============
 
 const finalizarCompra = async () => {
+  const carritoToMP = carrito.map((prod) => {
+    return {
+      title: prod.nombre,
+      description: prod.tipo,
+      picture_url: "",
+      category_id: prod.id,
+      quantity: prod.cantidad,
+      currency_id: "ARS",
+      unit_price: prod.precio,
+    };
 
-  const carritoToMP = carrito.map( (prod) => {
-      return {
-          title: prod.nombre,
-          description: "",
-          picture_url: "",
-          category_id: prod.id,
-          quantity: prod.cantidad,
-          currency_id: "ARS",
-          unit_price: prod.precio
-      }
-  })
-
-  const resp = await fetch('https://api.mercadopago.com/checkout/preferences', {
-                              method: 'POST',
-                              headers: {
-                                  Authorization: 'Bearer TEST-530625010370198-052019-70dec8c67253a7ded8355f1a098731e3-418556460'
-                              },
-                              body: JSON.stringify({
-                                  items: carritoToMP,
-                                  back_urls: {
-                                      success: window.location.href,
-                                      failure: window.location.href
-                                  }
-                              })
-                          })
-  const data = await resp.json()
+  });
+  console.log(carritoToMP)
   
-  window.location.replace(data.init_point)
-}
+  const resp = await fetch("https://api.mercadopago.com/checkout/preferences", {
+    method: "POST",
+    headers: {
+      //mio
+      Authorization:
+        "Bearer TEST-6030832828256054-120910-476389e91732696722f1cc5be0955a7e-8145995",
+
+      
+    },
+    body: JSON.stringify({
+      items: carritoToMP,
+      back_urls: {
+        success: window.location.href,
+        failure: window.location.href,
+      },
+    }),
+  });
+  const data = await resp.json();
+
+  window.location.replace(data.init_point);
+};
