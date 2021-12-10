@@ -236,8 +236,10 @@ const finalizarCompra = async () => {
   const resp = await fetch("https://api.mercadopago.com/checkout/preferences", {
     method: "POST",
     headers: {
+
+     
       //mio
-      Authorization:
+       Authorization:
         "Bearer TEST-6030832828256054-120910-476389e91732696722f1cc5be0955a7e-8145995",
 
       
@@ -246,8 +248,9 @@ const finalizarCompra = async () => {
       items: carritoToMP,
       back_urls: {
         success: window.location.href,
-        failure: window.location.href,
+        failure: window.location.href,      
       },
+      auto_return: "approved",
     }),
   });
   const data = await resp.json();
