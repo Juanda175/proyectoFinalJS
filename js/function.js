@@ -213,9 +213,6 @@ const typed = new Typed(".typed", {
   loopCount: false, // Cantidad de veces a repetir el array.  false = infinite
 });
 
-
-
-
 // ========= API MERCADO PAGO =============
 
 const finalizarCompra = async () => {
@@ -229,26 +226,21 @@ const finalizarCompra = async () => {
       currency_id: "ARS",
       unit_price: prod.precio,
     };
-
   });
-  console.log(carritoToMP)
-  
+  console.log(carritoToMP);
+
   const resp = await fetch("https://api.mercadopago.com/checkout/preferences", {
     method: "POST",
     headers: {
-
-     
       //mio
-       Authorization:
+      Authorization:
         "Bearer TEST-6030832828256054-120910-476389e91732696722f1cc5be0955a7e-8145995",
-
-      
     },
     body: JSON.stringify({
       items: carritoToMP,
       back_urls: {
-        success: window.location.href,
-        failure: window.location.href,      
+        success: window.location.origin + "/hola.html",
+        failure: window.location.href,
       },
       auto_return: "approved",
     }),
@@ -257,3 +249,23 @@ const finalizarCompra = async () => {
 
   window.location.replace(data.init_point);
 };
+
+//entrar con contraseña al checkout
+
+let contraseña = "";
+
+function mostrar() {
+  
+    contraseña = prompt("ingrese contraseña de acceso");
+    console.log("Contraseña 1987")
+
+    if (contraseña == "1987") {
+      
+      window.location.href="./hola.html"
+    }
+    else{
+      swal("CONTRASEÑA INCORRECTA \n" + "pista: console.log");
+    }
+    
+    console.log(contraseña);
+  }

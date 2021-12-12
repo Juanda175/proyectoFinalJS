@@ -1,3 +1,17 @@
+.accordion {
+  margin-bottom: 15%; }
+  .accordion h2 {
+    text-align: center;
+    margin-top: 5%; }
+  .accordion .accordion-body {
+    background-color: rgba(0, 0, 0, 0.555); }
+
+.valido {
+  border: 2px green solid; }
+
+.invalido {
+  border: 2px red solid; }
+
 /* footer */
 #templatemo_footer_wrapper {
   width: 100%;
