@@ -82,6 +82,25 @@
   background-color: rgba(255, 0, 51, 0.342); }
 
 /* --------------- */
+.modal .modal-title {
+  color: white;
+  background-color: #616569; }
+
+.modal h5 {
+  text-align: center;
+  width: 100%; }
+
+.productoEnCarrito {
+  background-color: springgreen;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center; }
+  .productoEnCarrito button {
+    width: 10%;
+    height: 5%;
+    padding: 1%; }
+
 * {
   padding: 0;
   margin: 0;
@@ -102,12 +121,11 @@ header {
 .typed {
   display: flex;
   height: 50px;
-  background: #c35c16;
-  background: radial-gradient(circle, #8f4a1c 0%, #af7811 100%);
+  background-image: url(../sources/backgrounds.jpg);
   align-items: center;
   font-size: 150%;
   justify-content: center;
-  color: black;
+  color: white;
   margin-bottom: 1%;
   margin-top: 1%;
   font-family: monospace;
@@ -123,8 +141,16 @@ header {
   margin-bottom: 5%; }
 
 .btn {
-  background-color: #c46f2b; }
+  background-color: #524942;
+  background-image: url(../sources/backgrounds.jpg); }
 
-.modal-title {
-  color: white;
-  background-color: #2695f0; }
+.card-body {
+  background-color: #616569;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; }
+  .card-body button {
+    width: 100%;
+    background-image: url(../sources/backgrounds.jpg);
+    color: white; }

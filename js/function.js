@@ -21,7 +21,7 @@ stockCarta.forEach((producto) => {
     <p class="card-text">${producto.tipo}</p>
     <p class="card-text">${producto.detalle}</p>
     <p class="card-text">$ ${producto.precio}.</p>
-    <button id='agregcar' onclick="agregarAlCarrito(${producto.id})"> Comprar </button>
+    <button id='agregcar' onclick="agregarAlCarrito(${producto.id})"> Agregar al carrito </button>
     </div>
     `;
 
@@ -93,13 +93,15 @@ const actualizarCarrito = () => {
     const div = document.createElement("div");
     div.className = "productoEnCarrito";
     div.innerHTML = `
-                  <p>${prod.nombre}</p>
                   <p>${prod.tipo}</p>
-                  <p>${prod.detalle}</p>
-                  <p>Precio: $${prod.precio}</p>   
+                  <p>${prod.nombre}</p>
+                  
                   <p>Cantidad: ${prod.cantidad}</p>               
-                  <button onclick="eliminarDelCarrito(${prod.id})" class="boton-eliminar"><i class="fas fa-trash-alt">Quitar</i></button>
+                  <p>Precio: $${prod.precio}</p>   
+                  <button onclick="eliminarDelCarrito(${prod.id})" class="boton-eliminar"><i class="fas fa-trash-alt"> - </i></button>
               `;
+
+    //<p>${prod.detalle}</p>
 
     contentCarro.appendChild(div);
   });
@@ -255,17 +257,14 @@ const finalizarCompra = async () => {
 let contraseña = "";
 
 function mostrar() {
-  
-    contraseña = prompt("ingrese contraseña de acceso");
-    console.log("Contraseña 1987")
+  contraseña = prompt("ingrese contraseña de acceso");
+  console.log("Contraseña 1987");
 
-    if (contraseña == "1987") {
-      
-      window.location.href="./hola.html"
-    }
-    else{
-      swal("CONTRASEÑA INCORRECTA \n" + "pista: console.log");
-    }
-    
-    console.log(contraseña);
+  if (contraseña == "1987") {
+    window.location.href = "./hola.html";
+  } else {
+    swal("CONTRASEÑA INCORRECTA \n" + "pista: console.log");
   }
+
+  console.log(contraseña);
+}

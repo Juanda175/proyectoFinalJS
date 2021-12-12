@@ -1,8 +1,13 @@
 
 
+$primer-color : rgb(97, 101, 105);
+
+
+
 @import "forms";
 @import "footer";
 @import "promos";
+@import "carrito";
 
 * {
     padding: 0;
@@ -31,12 +36,11 @@ header {
 .typed {
     display: flex;
     height: 50px;
-    background: rgb(195, 92, 22);
-    background: radial-gradient(circle, rgb(143, 74, 28) 0%, rgba(175, 120, 17, 1) 100%);
+    background-image: url(../sources/backgrounds.jpg);
     align-items: center;
     font-size: 150%;
     justify-content: center;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     margin-bottom: 1%;
     margin-top: 1%;
     font-family: monospace;
@@ -63,15 +67,29 @@ header {
 
 .btn{
     
-   
-   background-color: rgb(196, 111, 43);
+   background-color: rgb(82, 73, 66);
+   background-image: url(../sources/backgrounds.jpg);
 
 }
 
 
-//modal
 
-.modal-title{
-    color: white;
-    background-color: rgb(38, 149, 240);
+
+//estilo tarjetas
+
+.card-body{
+    background-color: $primer-color ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    
+
+    button{
+        width: 100%;
+        background-image: url(../sources/backgrounds.jpg);
+        color: white;
+        
+    }
+
 }

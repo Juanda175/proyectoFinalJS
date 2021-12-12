@@ -1,0 +1,29 @@
+.modal {
+
+
+    .modal-title {
+        color: white;
+        background-color: $primer-color;
+    }
+
+
+    h5 {
+        text-align: center;
+        width: 100%;
+
+    }
+}
+
+.productoEnCarrito {
+    background-color: springgreen;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+
+    button {
+        width: 10%;
+        height: 5%;
+        padding: 1%;
+    }
+}
