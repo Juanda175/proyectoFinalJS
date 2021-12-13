@@ -1,5 +1,12 @@
+
+
+
+
+
+
 .modal {
 
+    background-image: url(../sources/backgrounds.jpg);
 
     .modal-title {
         color: white;
@@ -15,15 +22,17 @@
 }
 
 .productoEnCarrito {
-    background-color: springgreen;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-content: center;
+    align-self: center;
+    
 
     button {
+        background-color: crimson;
         width: 10%;
         height: 5%;
-        padding: 1%;
+        padding: 0;
     }
 }

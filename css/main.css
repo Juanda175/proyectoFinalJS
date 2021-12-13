@@ -1,8 +1,28 @@
+@font-face {
+  font-family: mrs;
+  src: url("../font/Mrs Eaves");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: typ;
+  src: url("../font/Utopia Italic.ttf"); }
+
+h2 {
+  color: white;
+  font-family: mrs;
+  background-image: url(../sources/backgrounds.jpg);
+  margin: 2% 0 2% 0;
+  text-align: center; }
+
 .accordion {
   margin-bottom: 15%; }
-  .accordion h2 {
+  .accordion h3 {
     text-align: center;
     margin-top: 5%; }
+  .accordion button {
+    color: white;
+    background-image: url(../sources/backgrounds.jpg); }
   .accordion .accordion-body {
     background-color: rgba(0, 0, 0, 0.555); }
 
@@ -12,53 +32,16 @@
 .invalido {
   border: 2px red solid; }
 
-/* footer */
-#templatemo_footer_wrapper {
+.antfoot {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   width: 100%;
-  margin: 0 auto;
-  margin-top: 5%;
-  padding: 0;
-  background: #426fae; }
+  margin-bottom: 10%; }
+  .antfoot button a {
+    color: white;
+    text-decoration: none; }
 
-#templatemo_footer {
-  width: 940px;
-  margin: 0 auto;
-  padding: 30px 20px;
-  background: #426fae url(images/templatemo_footer_bg.jpg) no-repeat center top;
-  color: #cccccc; }
-
-#templatemo_footer a {
-  color: #ffffff; }
-
-#templatemo_footer .section_w280 {
-  float: left;
-  width: 240px;
-  padding-right: 40px; }
-
-#templatemo_footer .section_w280 h3 {
-  width: 175px;
-  height: 30px;
-  font-size: 14px;
-  font-weight: bold;
-  color: #ffffff; }
-
-#templatemo_footer .footer_list {
-  margin: 0px;
-  padding: 0px;
-  list-style: none; }
-
-#templatemo_footer .footer_list li {
-  margin: 0px;
-  padding: 3px 0; }
-
-#templatemo_footer .footer_list li a {
-  color: #cccccc; }
-
-#templatemo_footer .footer_list li a:hover {
-  color: #ffffff;
-  text-decoration: none; }
-
-/* end of footer */
 /*  */
 .promospromos {
   margin: 5% 0 5% 0;
@@ -82,24 +65,26 @@
   background-color: rgba(255, 0, 51, 0.342); }
 
 /* --------------- */
-.modal .modal-title {
-  color: white;
-  background-color: #616569; }
-
-.modal h5 {
-  text-align: center;
-  width: 100%; }
+.modal {
+  background-image: url(../sources/backgrounds.jpg); }
+  .modal .modal-title {
+    color: white;
+    background-color: #616569; }
+  .modal h5 {
+    text-align: center;
+    width: 100%; }
 
 .productoEnCarrito {
-  background-color: springgreen;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-content: center; }
+  align-content: center;
+  align-self: center; }
   .productoEnCarrito button {
+    background-color: crimson;
     width: 10%;
     height: 5%;
-    padding: 1%; }
+    padding: 0; }
 
 * {
   padding: 0;
@@ -128,7 +113,7 @@ header {
   color: white;
   margin-bottom: 1%;
   margin-top: 1%;
-  font-family: monospace;
+  font-family: typ;
   font-weight: bold; }
 
 .typed-cursor {
@@ -145,12 +130,29 @@ header {
   background-image: url(../sources/backgrounds.jpg); }
 
 .card-body {
+  color: white;
+  font-family: mrs;
   background-color: #616569;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between; }
+  .card-body h3 {
+    text-decoration: underline; }
   .card-body button {
     width: 100%;
     background-image: url(../sources/backgrounds.jpg);
     color: white; }
+
+.container-fluid a {
+  text-decoration: none;
+  color: white; }
+
+.container-fluid li {
+  list-style: none; }
+
+.container-fluid .btn-primary {
+  border-color: transparent; }
+
+#swal {
+  width: 20px; }

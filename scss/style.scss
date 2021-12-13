@@ -3,9 +3,20 @@
 $primer-color : rgb(97, 101, 105);
 
 
+@font-face {
+    font-family:mrs ;
+    src: url("../font/Mrs\ Eaves");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family:typ ;
+    src: url("../font/Utopia\ Italic.ttf");
+   
+  }
 
 @import "forms";
-@import "footer";
 @import "promos";
 @import "carrito";
 
@@ -14,6 +25,7 @@ $primer-color : rgb(97, 101, 105);
     margin: 0;
     box-sizing: border-box;
 }
+
 
 //header
 #imh {
@@ -43,7 +55,7 @@ header {
     color: rgb(255, 255, 255);
     margin-bottom: 1%;
     margin-top: 1%;
-    font-family: monospace;
+    font-family:typ;
     font-weight: bold;
 
 }
@@ -78,12 +90,18 @@ header {
 //estilo tarjetas
 
 .card-body{
+    color: white;
+    font-family: mrs;
     background-color: $primer-color ;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     
+
+    h3{
+        text-decoration: underline;
+    }
 
     button{
         width: 100%;
@@ -92,4 +110,27 @@ header {
         
     }
 
+}
+
+
+
+.container-fluid{
+
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        
+        li{
+            list-style: none;
+
+        }
+.btn-primary{
+   
+    border-color:transparent;
+}
+}
+
+#swal{
+width: 20px;
 }

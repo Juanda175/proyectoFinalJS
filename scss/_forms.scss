@@ -1,11 +1,22 @@
+h2 {
+    color: white;
+    font-family: mrs;
+    background-image: url(../sources/backgrounds.jpg);
+    margin: 2% 0 2% 0 ;
+    text-align: center;
+}
 
-
-.accordion{
+.accordion {
     margin-bottom: 15%;
 
-    h2{
+    h3 {
         text-align: center;
         margin-top: 5%;
+    }
+
+    button {
+        color: white;
+        background-image: url(../sources/backgrounds.jpg);
     }
 
     .accordion-body {
@@ -19,5 +30,19 @@
 
 .invalido {
     border: 2px red solid;
+}
+
+.antfoot {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10%;
+
+    button a {
+        color: white;
+        text-decoration: none;
+
+    }
 }
 

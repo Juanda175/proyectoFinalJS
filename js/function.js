@@ -1,9 +1,4 @@
-//ESTILOS AGRUPADOS
-// const estilos = $("h1,h3");
 
-// $(estilos).css("color", "white");
-// $(estilos).css("font-size", "300%");
-// $(estilos).css("font-family", "'Franklin Gothic Medium', 'Arial Narrow', 'Arial, sans-serif'");
 
 //CONTENEDOR PRODUCTOS
 
@@ -17,7 +12,7 @@ stockCarta.forEach((producto) => {
   article.innerHTML = `
     <img src=${producto.img} id='imgP' class="card-img-top" alt="...">
     <div class="card-body">
-    <h5 class="card-title">${producto.nombre}</h5>
+    <h3 class="card-title">${producto.nombre}</h3>
     <p class="card-text">${producto.tipo}</p>
     <p class="card-text">${producto.detalle}</p>
     <p class="card-text">$ ${producto.precio}.</p>
@@ -66,15 +61,30 @@ const agregarAlCarrito = (prodId) => {
   actualizarCarrito();
   console.log(carrito);
 
-  //alert
-  Swal.fire({
-    position: "bottom-end",
-    icon: "success",
-    title: "Agregado al carrito",
-    showConfirmButton: false,
-    timer: 1000,
-  });
+
+
+//alert añadido al carrito
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 700,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
+Toast.fire({
+  icon: 'success',
+  title: 'Agregado al carrito'
+})
 };
+
+
+
+//fin alert
 
 const eliminarDelCarrito = (prodId) => {
   const item = carrito.find((prod) => prod.id === prodId);
@@ -101,7 +111,7 @@ const actualizarCarrito = () => {
                   <button onclick="eliminarDelCarrito(${prod.id})" class="boton-eliminar"><i class="fas fa-trash-alt"> - </i></button>
               `;
 
-    //<p>${prod.detalle}</p>
+    
 
     contentCarro.appendChild(div);
   });
@@ -111,14 +121,16 @@ const actualizarCarrito = () => {
     (acc, el) => acc + el.precio * el.cantidad,
     0
   );
-  // precioTotal.innerText = carrito.reduce((acc, prod) => acc + prod.precio, 0);
+  
 };
 
 botonVaciar.addEventListener("click", () => {
-  // carrito = [] // si tengo carrito como LET
+ 
   carrito.length = 0;
   actualizarCarrito();
 });
+
+
 
 //Objetos Promos
 

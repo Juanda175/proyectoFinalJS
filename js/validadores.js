@@ -12,14 +12,11 @@ $('#enviar').click((e) => {
     if (nombre.length < 1 || apellido.length < 1 || domicilio.length < 1 ) {
         
         Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
             text: 'verifique los campos marcados en rojos'
         })
     } else {
         Swal.fire({
-            icon: 'success',
-            title: '¡Enviado correctamente!',
+            text:'Su pedido sera enviado en 30 minutos ¡Gracias por comprar en bucky!',
             confirmButtonText: 'Genial!'
         })
     }
@@ -74,16 +71,13 @@ $('#enviar2').click((e) => {
 
     if (nombre.length < 1 || apellido.length < 1) {
         
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'verifique los campos marcados en rojos'
+        Swal.fire({            
+            text: 'verifique los campos marcados en rojos', 
         })
     } else {
         Swal.fire({
-            icon: 'success',
-            title: '¡Enviado correctamente!',
-            confirmButtonText: 'Genial!'
+            
+            text: 'Su pedido estara listo en 30 minutos . ¡Gracias por comprar en Bucky!',
         })
     }
 
